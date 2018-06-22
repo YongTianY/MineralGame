@@ -5,7 +5,7 @@ import unittest
 import random
 
 from Connection import RPCConnection
-from Wallet import Wallet
+from WalletApi import Wallet
 
 class WalletTest(unittest.TestCase):
     __conn = None

@@ -23,6 +23,9 @@ class Wallet:
 
         if len(self.__password) <= 8:
             raise ValueError("Invalid Password. at least 8 char")
+    
+    def getUsername(self):
+        return self.__username
 
     def open(self):
         self.close() #close first
@@ -31,6 +34,7 @@ class Wallet:
         wallet_create={"jsonrpc":"2.0","params":[self.__username],"id":rid,"method":"wallet_open"}
         self.__rpcConnection.write(json.dumps(wallet_create))
         recv_data = self.__rpcConnection.read()
+        print "open dddd " + recv_data
         result=json.loads(recv_data)
         success = False
         if result['id'] == rid:
