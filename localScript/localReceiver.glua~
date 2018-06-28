@@ -1,0 +1,9 @@
+--pprint("got event ",event_type," from contract ",contract_id," param is ", param)
+
+local io=require 'io'
+local f=io.open("/dev/localpipe", "w") 
+f:write(contract_id .. ":" .. param)
+f:flush() 
+f:close()
+
+--pprint("io execute finish")
